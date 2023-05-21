@@ -6,9 +6,9 @@ const BUTTON_TYPES = {
     custom: 'custom-button'
 }
 
-const Button = ({ children, type,...otherProps}) => {
+const Button = ({ children, typeOf,...otherProps}) => {
     return (
-        <button className={`button-container ${BUTTON_TYPES[type]}`} {...otherProps}>
+        <button className={`button-container ${BUTTON_TYPES[typeOf]}`} {...otherProps}>
             {children}
         </button>
     )
