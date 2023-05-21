@@ -1,11 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider , signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { getAuth, GoogleAuthProvider , signInWithPopup,createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore,doc,setDoc,getDoc } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA80oD8un7xnrD4QBiHJsef8sjbmlWDbl0",
   authDomain: "ecommerce-website-9ed13.firebaseapp.com",
@@ -25,10 +21,11 @@ provider.setCustomParameters({
 
 export const auth = getAuth();
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
+// export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
 
 export const db = getFirestore();
 
-export const createUserProfileDocument = async (userAuth) => {
+export const createUserProfileDocument = async (userAuth,additionalInfo={}) => {
     if (!userAuth) return;
     const userRef = doc(db, "users", userAuth.uid); //database collection and identifier
     const snapShot = await getDoc(userRef); //get the document from the reference to check if document exist in db
@@ -39,7 +36,8 @@ export const createUserProfileDocument = async (userAuth) => {
             await setDoc(userRef, {
                 displayName,
                 email,
-                createdAt
+                createdAt,
+                ...additionalInfo //spread the additional info
             });
         } catch (error) {
             console.log(error.message);
@@ -47,4 +45,10 @@ export const createUserProfileDocument = async (userAuth) => {
     }
     return userRef;
 }
+
+export const createAuthUser = async (email,password) => {
+    if(!email || !password) return;
+    return await createUserWithEmailAndPassword(auth,email,password);
+}
+
 

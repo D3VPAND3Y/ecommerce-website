@@ -7,7 +7,8 @@ function App() {
     <Routes>
       <Route path="/" element={ <Navigation />} >
       <Route index element={ <Home />} /> {/* base url */}
-      <Route path="signin" element={ <Signin/>} /> 
+      <Route path="signin" element={ <Signin/>} />
+
       {/* <Route path="shop" element={ <Home />} /> base url */}
       </Route>
 
