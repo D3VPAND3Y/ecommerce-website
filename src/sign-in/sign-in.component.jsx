@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 // import {createAuthUser} from "../utils/firebase/firebase.utils.js";
 import { createUserProfileDocument,signInWithGoogle,signInAuthUser } from "../utils/firebase/firebase.utils.js";
 import FormInput from "../form-input/form-input.component.jsx";
@@ -16,19 +15,19 @@ const INITIAL_STATE = {
 const SignInForm =()=>{
 
     const signInWithGoogleMethod = async () => {
-        const {user} = await signInWithGoogle();
-        await createUserProfileDocument(user);
+         await signInWithGoogle();
+
     }
 
     const [signUpForm,setSignUpForm] = useState(INITIAL_STATE);
     const {email,password} = signUpForm;
 
-    console.log(signUpForm);
+    // console.log(signUpForm);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await signInAuthUser(email,password);
+            const {user}=await signInAuthUser(email,password);
             setSignUpForm(INITIAL_STATE);
 
         }catch (err) {

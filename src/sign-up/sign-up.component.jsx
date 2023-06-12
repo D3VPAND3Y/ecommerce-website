@@ -18,7 +18,10 @@ const SignUpForm =()=>{
     const [signUpForm,setSignUpForm] = useState(INITIAL_STATE);
     const {displayName,email,password,confirmPassword} = signUpForm;
 
-    console.log(signUpForm);
+
+
+
+    // console.log(signUpForm);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
