@@ -4,10 +4,15 @@ import "./navigation.styles.scss";
 import { Fragment,useContext } from "react";
 import { UsersContext } from "../../contexts/users.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../../cart-icon/cart-icon.component";
+import CartDropdown from "../../cart-dropdown/cart-dropdown.component";
+import { CartContext } from "../../contexts/cart.context";
 
 const Navigation =() =>{
     const {currentUser } = useContext(UsersContext);
     // console.log(currentUser);
+    const {isCartOpen} = useContext(CartContext);
+
 
 
 
@@ -32,7 +37,9 @@ const Navigation =() =>{
 
             )
         }
+        <CartIcon />
         </div>
+        {isCartOpen && <CartDropdown />}
         </div>
         <Outlet />
         </Fragment>
@@ -40,4 +47,4 @@ const Navigation =() =>{
     );
 }
 
-export default Navigation; 
+export default Navigation;
