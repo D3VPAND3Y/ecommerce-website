@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider , signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut, onAuthStateChanged } from "firebase/auth";
-import { getFirestore,doc,setDoc,getDoc } from "firebase/firestore";
+import { getFirestore,doc,setDoc,getDoc,collection,writeBatch,query,getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA80oD8un7xnrD4QBiHJsef8sjbmlWDbl0",
@@ -24,6 +24,32 @@ export const signInWithGoogle = () => signInWithPopup(auth, provider);
 // export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (collectionKey,objectsToAdd) => {
+    const collectionRef = collection(db,collectionKey);
+    const batch = writeBatch(db); // if any of the document fails to set, none of them will be set
+    objectsToAdd.forEach(obj => {
+        const newDocRef = doc(collectionRef,obj.title.toLowerCase());
+        batch.set(newDocRef,obj);
+    });
+    console.log("batch commit");
+    return await batch.commit();
+}
+
+export const getCategoriesAndDocuments = async () => {
+    const collectionRef = collection(db, 'categories');
+    const q = query(collectionRef);
+
+    const querySnapshot = await getDocs(q);
+    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+      const { title, items } = docSnapshot.data();
+      acc[title.toLowerCase()] = items;
+      return acc;
+    }, {});
+
+    return categoryMap;
+  };
+
 
 export const createUserProfileDocument = async (userAuth,additionalInfo={}) => {
     if (!userAuth) return;
@@ -49,7 +75,7 @@ export const createUserProfileDocument = async (userAuth,additionalInfo={}) => {
 export const createAuthUser = async (email,password) => {
     if(!email || !password) return;
     return await createUserWithEmailAndPassword(auth,email,password);
-} 
+}
 
 export const signInAuthUser = async (email,password) => {
     if(!email || !password) return;

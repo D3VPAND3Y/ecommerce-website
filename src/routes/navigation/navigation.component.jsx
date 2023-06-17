@@ -28,7 +28,6 @@ const Navigation =() =>{
         <div className="nav-links-container">
         <Link className="nav-link" to="shop">Shop</Link>
         {/* <Link className="nav-link" to="about">About</Link> */}
-        <Link className="nav-link" to="contact">Contact</Link>
         {
             currentUser ? (
                 <span className="nav-link" onClick={signOutUser  }>Sign Out</span>
@@ -39,7 +38,9 @@ const Navigation =() =>{
         }
         <CartIcon />
         </div>
-        {isCartOpen && <CartDropdown />}
+        {
+            isCartOpen ? <CartDropdown /> : null
+        }
         </div>
         <Outlet />
         </Fragment>
