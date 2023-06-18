@@ -40,6 +40,7 @@ const Navigation =() =>{
         </div>
         {
             isCartOpen ? <CartDropdown /> : null
+            
         }
         </div>
         <Outlet />
