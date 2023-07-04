@@ -1,6 +1,6 @@
 import "./button.styles.scss"
 
-const BUTTON_TYPES = {
+export const BUTTON_TYPES = {
     google: 'google-sign-in',
     inverted: 'inverted',
     custom: 'custom-button'

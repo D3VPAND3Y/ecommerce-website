@@ -2,6 +2,7 @@ import "./checkout.styles.scss";
 import { useContext } from "react";
 import { CartContext } from "../contexts/cart.context";
 import CheckoutItem from "../checkout-item/checkout-item.component";
+import PaymentForm from "../payment-form/payment-form.component";
 
 const Checkout = () => {
     const {cartItems} = useContext(CartContext);
@@ -31,6 +32,7 @@ const Checkout = () => {
         }
 
         <span className="total">Total: ${cartItems.reduce((acc,cartItem) => acc + cartItem.price * cartItem.quantity,0)}</span>
+        <PaymentForm />
         </div>
     );
 }

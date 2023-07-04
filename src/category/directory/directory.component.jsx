@@ -1,6 +1,6 @@
 import CategoryItem from "../category-item/category-item.component";
 import "./directory.styles.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Directory = () => {
   const categories = [

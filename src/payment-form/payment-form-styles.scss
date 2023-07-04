@@ -1,0 +1,16 @@
+.PaymentFormContainer {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.FormContainer {
+  height: 100px;
+  min-width: 500px;
+}
+
+.PaymentFormContainer button {
+  margin-left: auto;
+  margin-top: 30px;
+}
