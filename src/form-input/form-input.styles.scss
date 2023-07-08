@@ -38,6 +38,7 @@ $main-color: black;
   }
 
   .form-input-label {
+    height: 100px;
     color: $sub-color;
     font-size: 16px;
     font-weight: normal;
@@ -51,4 +52,27 @@ $main-color: black;
       @include shrinkLabel();
     }
   }
+}
+
+// responsive
+
+@media screen and (max-width: 800px) {
+  .group {
+    margin: 20px 0;
+
+    .form-input {
+      padding: 10px 10px 10px 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .group {
+    margin: 15px 0;
+
+    .form-input {
+      padding: 10px 10px 10px 5px;
+    }
+  }
+
 }
