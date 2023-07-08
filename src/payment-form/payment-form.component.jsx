@@ -66,7 +66,7 @@ const PaymentForm = () => {
     <form className={styles.PaymentFormContainer} onSubmit={paymentHandler}>
       <div className={styles.FormContainer}>
         <h2>Credit Card Payment:</h2>
-        <CardElement />
+        <CardElement className="credit-card-detail"/>
       </div>
 
       <Button

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const CategoryPreview = ({ title, products }) => {
   return (
     <div className="category-preview-container">
-      <span>
+      <h2>
         <Link to={`/shop/${title.toLowerCase()}`} className="title">
           {title}
         </Link>
-      </span>
+      </h2>
       <div className="preview">
         {products
           .filter((product, idx) => idx < 4)

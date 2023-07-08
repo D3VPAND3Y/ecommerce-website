@@ -1,12 +1,19 @@
 .home-main-container{
+  padding: 0 40px;
   display: flex;
   justify-content: center;
 
+  @media screen and (max-width: 800px) {
+    padding: 0 20px;
+  }
+
 }
 .directory-container {
-  width: 70%;
+  width: 100%;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+

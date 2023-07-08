@@ -11,3 +11,27 @@
     justify-content: center;
 
 }
+
+// responsive
+
+@media screen and (max-width: 800px) {
+    .category-container-shop{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 10px;
+        row-gap: 20px;
+    }
+    .category-title{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .category-container-shop{
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 10px;
+        row-gap: 20px;
+    }
+    .category-title{
+        font-size: 20px;
+    }
+}

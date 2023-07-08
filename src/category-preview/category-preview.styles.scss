@@ -7,6 +7,8 @@
     font-size: 28px;
     margin-bottom: 25px;
     cursor: pointer;
+    text-transform: uppercase;
+    padding: 20px;
   }
 
   .preview {
@@ -15,3 +17,30 @@
     column-gap: 20px;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .category-preview-container {
+    .title {
+      font-size: 20px;
+    }
+
+    .preview {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .category-preview-container {
+    .title {
+      font-size: 20px;
+    }
+
+    .preview {
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: 10px;
+    }
+  }
+}
+

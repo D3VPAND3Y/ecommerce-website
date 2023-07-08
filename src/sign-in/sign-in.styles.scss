@@ -1,17 +1,36 @@
 .sign-up-container {
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 50%;
+  padding-bottom: 40px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 20px;
+    padding-bottom: 40px;
+  }
 }
 
+h2 {
+  margin: 10px 0;
 
-h2{
-    margin: 10px 0;
-
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 100px;
+  // align-items: center;
 
+  @media (max-width: 768px) {
+    gap: 50px;
+  }
+
+  @media (max-width: 468px) {
+    gap: 10px;
+    flex-direction: column;
+  }
 }

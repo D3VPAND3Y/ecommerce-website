@@ -64,8 +64,10 @@ const SignInForm =()=>{
 
                 <Button type="submit">Sign In</Button>
                 <Button typeOf='google' type='button' onClick={signInWithGoogleMethod}>Google Sign In</Button>
+
                 </div>
             </form>
+            {/* <span>Don't have an account? <a href="/sign-up">Sign Up</a></span> */}
         </div>
     )
 }

@@ -83,7 +83,7 @@ export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const [{ cartCount, cartTotal, cartItems }, dispatch] = useReducer(
-    cartReducer, 
+    cartReducer,
     INITIAL_STATE
   );
 

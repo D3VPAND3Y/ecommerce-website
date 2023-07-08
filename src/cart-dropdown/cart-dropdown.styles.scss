@@ -11,6 +11,16 @@
   right: 40px;
   z-index: 5;
 
+  @media screen and (max-width: 800px) {
+    right: 20px;
+    top: 80px;
+  }
+
+  @media screen and (max-width: 468px) {
+    right: 10px;
+    top: 70px;
+  }
+
   .empty-message {
     font-size: 18px;
     margin: 50px auto;
@@ -25,6 +35,6 @@
 
   button {
     margin-top: auto;
-    
+
   }
 }
